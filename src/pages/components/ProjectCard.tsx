@@ -68,13 +68,13 @@ export default function ProjectCard({
                                         title,
                                         url,
                                         description,
-                                        technologies,
+                                        technologies = {}, // 기본값 추가
                                         status,
                                     }: {
     title: string;
     url: string;
     description: string;
-    technologies: { [key: string]: string[] };
+    technologies?: { [key: string]: string[] }; // 선택적 속성으로 변경
     status: string;
 }): JSX.Element {
     return (
@@ -87,8 +87,7 @@ export default function ProjectCard({
             <TechnologiesSection>
                 {Object.entries(technologies).map(([category, items], index) => (
                     <TechCategory key={index}>
-                        - {category.charAt(0).toUpperCase() + category.slice(1)}:{" "}
-                        {items.join(", ")}
+                        - {category.charAt(0).toUpperCase() + category.slice(1)}: {items.join(", ")}
                     </TechCategory>
                 ))}
             </TechnologiesSection>
@@ -99,3 +98,4 @@ export default function ProjectCard({
         </CardContainer>
     );
 }
+
