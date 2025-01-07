@@ -1,16 +1,17 @@
 import styled from "styled-components";
-import { IoIosLink } from "react-icons/io"; // 링크 아이콘 import
+import { IoIosLink } from "react-icons/io";
+import { JSX } from "react";
 
 const CardContainer = styled.div`
-    width: 30%; /* 카드 너비를 전체 화면의 30%로 설정 */
-    margin-bottom: 24px; /* 아래쪽 간격 */
+    width: 40%;
+    margin-bottom: 24px;
     padding-bottom: 16px;
-    border-bottom: 1px solid #444; /* 하단 테두리 */
-    color: #ddd; /* 텍스트 색상 무채색 */
-    text-align: left; /* 좌측 정렬 */
+    border-bottom: 1px solid #444;
+    color: #ddd;
+    text-align: left;
 
     @media (max-width: 768px) {
-        width: 100%; /* 모바일에서는 전체 너비 사용 */
+        width: 100%;
         margin-bottom: 16px;
     }
 `;
@@ -19,44 +20,46 @@ const Title = styled.a`
     font-size: 1.4rem;
     font-weight: bold;
     text-decoration: none;
-    color: #ddd; /* 제목 색상 무채색 */
-    display: flex; /* 아이콘과 텍스트를 나란히 정렬 */
-    align-items: center; /* 수직 정렬 */
-    gap: 8px; /* 아이콘과 텍스트 간격 */
+    color: #ddd;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 
     &:hover {
         text-decoration: underline;
-        color: #fff; /* 호버 시 색상 강조 */
+        color: #fff;
     }
 `;
 
 const Description = styled.p`
-    margin: 8px 0 12px; /* URL 아래 여백 */
+    margin: 8px 0 12px;
     font-size: 1rem;
-    color: #aaa; /* 설명 색상 */
+    color: #aaa;
 `;
 
-const Technologies = styled.p`
+const TechnologiesSection = styled.div`
     margin: 8px 0;
-    font-size: 0.9rem;
-    color: #ccc; /* 기술 스택 색상 */
-    line-height: 1.6;
+`;
+
+const TechCategory = styled.div`
+    font-size: 0.8rem;
+    margin-bottom: 4px;
+    color: #ccc;
 `;
 
 const Status = styled.div`
     margin-top: 12px;
-    font-size: 0.9rem;
-    font-weight: bold;
-    color: #888; /* 상태 색상 무채색 */
-    display: flex; /* 아이콘과 텍스트 정렬 */
+    font-size: 0.75rem;
+    color: #888;
+    display: flex;
     align-items: center;
-    gap: 8px; /* 아이콘과 텍스트 간격 */
+    gap: 8px;
 `;
 
 const StatusIcon = styled.span`
-    width: 10px; /* 동그라미 크기 */
+    width: 10px;
     height: 10px;
-    background-color: #4caf50; /* 초록색 */
+    background-color: #4caf50;
     border-radius: 50%;
     display: inline-block;
 `;
@@ -71,17 +74,24 @@ export default function ProjectCard({
     title: string;
     url: string;
     description: string;
-    technologies: string;
+    technologies: { [key: string]: string[] };
     status: string;
-}) {
+}): JSX.Element {
     return (
         <CardContainer>
             <Title href={url} target="_blank" rel="noopener noreferrer">
-                <IoIosLink /> {/* 아이콘 추가 */}
                 {title}
+                <IoIosLink />
             </Title>
             <Description>{description}</Description>
-            <Technologies>{technologies}</Technologies>
+            <TechnologiesSection>
+                {Object.entries(technologies).map(([category, items], index) => (
+                    <TechCategory key={index}>
+                        - {category.charAt(0).toUpperCase() + category.slice(1)}:{" "}
+                        {items.join(", ")}
+                    </TechCategory>
+                ))}
+            </TechnologiesSection>
             <Status>
                 <StatusIcon />
                 Available from {status}

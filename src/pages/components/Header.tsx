@@ -24,18 +24,18 @@ const ContentWrapper = styled.div`
 
 const Logo = styled.h1`
     margin: 0;
-    font-size: 2.7rem; /* 동일한 폰트 크기 */
+    font-size: 2.7rem;
     font-weight: bold;
-    color: #f0f0f0; /* ProjectsTitle과 색상 통일 */
+    color: #f0f0f0;
 `;
 
 export default function Header() {
-    const scrollToTop = () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
+    const sendMail = () => {
+        window.location.href = "mailto:nidolight@icloud.com";
     };
 
     return (
-        <HeaderContainer onClick={scrollToTop}>
+        <HeaderContainer onClick={sendMail}>
             <ContentWrapper>
                 <Logo>Junho Hur</Logo>
             </ContentWrapper>
