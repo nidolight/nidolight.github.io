@@ -1,0 +1,24 @@
+@import "pretendard/dist/web/static/pretendard.css";
+
+/* 기본 스타일 */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: #111; /* 어두운 배경 */
+    color: #fff; /* 흰 텍스트 */
+}
+
+/* Next.js의 기본 래퍼 */
+#__next {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* 화면 전체 높이 채움 */
+}
+
+/* 메인 콘텐츠 */
+main {
+    flex: 1;
+    padding: 20px; /* 콘텐츠 여백 */
+}
