@@ -93,7 +93,7 @@ export default function ProjectCard({
             </TechnologiesSection>
             <Status>
                 <StatusIcon />
-                Available from {status}
+                Available since {status}
             </Status>
         </CardContainer>
     );
