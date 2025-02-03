@@ -18,8 +18,12 @@ const HeaderContainer = styled.header`
 
 const ContentWrapper = styled.div`
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 10px auto;
     padding: 0 clamp(8vw, 50px, 15vw);
+
+    @media (min-width: 1200px) { 
+        margin-left: 20vw;
+    }
 `;
 
 const Logo = styled.h1`

@@ -3,9 +3,12 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
   reactStrictMode: true,
-  output: 'export', // 정적 HTML로 내보내기
+  output: 'export',
   basePath: '/nidolight',
   assetPrefix: '/nidolight',
+  compiler: {
+    styledComponents: true,
+  },
 };
 
 export default nextConfig;

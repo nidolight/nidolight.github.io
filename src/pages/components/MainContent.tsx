@@ -5,13 +5,17 @@ import Introduction from "./Introduction";
 
 const MainContainer = styled.main`
     flex: 1;
-    padding: 2vh 0;
+    padding: 1vh 0;
 `;
 
 const ContentWrapper = styled.div`
     max-width: 1200px;
-    margin: 10px;
+    margin: 10px auto;
     padding: 0 clamp(8vw, 50px, 15vw);
+    
+    @media (min-width: 1200px) { 
+        margin-left: 20vw;
+    }
 `;
 
 const ProjectsTitle = styled.h2`
@@ -44,15 +48,6 @@ export default function MainContent(): JSX.Element {
                 infra: ["AWS (EC2, S3)", "Jenkins", "Docker-compose", "Nginx"],
             },
             status: "2024.10",
-        },
-        {
-            title: "",
-            url: "",
-            description: "",
-            technologies: {
-
-            },
-            status: "",
         },
         {
             title: "Next-NAS",
