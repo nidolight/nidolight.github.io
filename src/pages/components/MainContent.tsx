@@ -47,7 +47,12 @@ export default function MainContent(): JSX.Element {
         },
         {
             title: "",
+            url: "",
+            description: "",
+            technologies: {
 
+            },
+            status: "",
         },
         {
             title: "Next-NAS",
