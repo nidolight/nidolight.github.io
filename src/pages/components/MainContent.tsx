@@ -10,7 +10,7 @@ const MainContainer = styled.main`
 
 const ContentWrapper = styled.div`
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 10px;
     padding: 0 clamp(8vw, 50px, 15vw);
 `;
 
