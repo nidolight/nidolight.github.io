@@ -12,7 +12,7 @@ const FooterContainer = styled.footer`
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px; /* 요소 간 간격 */
+    gap: 8px;
 `;
 
 const FooterText = styled.p`
@@ -66,7 +66,12 @@ export default function Footer() {
             const koreanTime = new Date(
                 now.toLocaleString("en-US", { timeZone: "Asia/Seoul" })
             );
-            const formattedTime = koreanTime.toLocaleTimeString();
+            const formattedTime = koreanTime.toLocaleTimeString("en-US", { 
+                hour12: true, // AM/PM 형식 사용
+                hour: "2-digit",
+                minute: "2-digit",
+                second: "2-digit"
+            });
             setCurrentTime(formattedTime);
         };
 
