@@ -1,31 +1,60 @@
 import styled from "styled-components";
 import { RiCopyrightLine } from "react-icons/ri";
+import { MdEmail } from "react-icons/md"; 
 import { useState, useEffect } from "react";
 
 const FooterContainer = styled.footer`
     padding: 20px 0;
     text-align: center;
     background-color: #111;
+    color: #fff;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px; /* 요소 간 간격 */
 `;
 
 const FooterText = styled.p`
-    color: #fff;
-    font-size: 14px;
     margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
 `;
 
 const Icon = styled(RiCopyrightLine)`
-    margin-right: 8px;
-    position: relative;
-    top: 2px;
-    color: #fff;
+    color: #aaa;
+    font-size: 16px;
+`;
+
+const EmailWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 5px;
+`;
+
+const EmailIcon = styled(MdEmail)`
+    font-size: 16px;
+    color: #bbb;
+`;
+
+const EmailLink = styled.a`
+    color: #bbb; /* 무채색 계열 */
+    text-decoration: none;
+    font-weight: normal;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+
+    &:hover {
+        color: #ddd; /* 밝은 회색 */
+        text-decoration: underline;
+    }
 `;
 
 const TimeText = styled.span`
-    display: block;
-    margin-top: 8px;
     color: #aaa;
     font-size: 12px;
+    margin-top: 8px;
 `;
 
 export default function Footer() {
@@ -53,6 +82,12 @@ export default function Footer() {
                 <Icon />
                 2025 nidolight. All Rights Reserved.
             </FooterText>
+            <EmailWrapper>
+                <EmailIcon />
+                <EmailLink href="mailto:nidolight@icloud.com">
+                    nidolight@icloud.com
+                </EmailLink>
+            </EmailWrapper>
             <TimeText>Current Korean Time: {currentTime}</TimeText>
         </FooterContainer>
     );

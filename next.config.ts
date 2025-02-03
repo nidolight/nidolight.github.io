@@ -6,7 +6,6 @@ const repository = "nidolight.github.io";
 const nextConfig: NextConfig = {
   /* config options here */
   reactStrictMode: true,
-  // output: 'export',
   assetPrefix: !debug ? `/${repository}/` : "", // production 일때 prefix 경로
 
   trailingSlash: true,

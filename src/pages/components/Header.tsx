@@ -22,7 +22,7 @@ const ContentWrapper = styled.div`
     margin: 10px auto;
     padding: 0 clamp(8vw, 50px, 15vw);
     display: flex;
-    justify-content: space-between; /* 로고와 아이콘을 양쪽으로 배치 */
+    justify-content: space-between;
     align-items: center;
 
     @media (min-width: 1200px) { 
@@ -52,9 +52,8 @@ export default function Header() {
         window.location.href = "mailto:nidolight@icloud.com";
     };
 
-    // 아이콘 클릭 시 이벤트 버블링 방지
     const handleGithubClick = (event: React.MouseEvent) => {
-        event.stopPropagation(); // 부모 요소(HeaderContainer)로 이벤트 전달 방지
+        event.stopPropagation();
     };
 
     return (
@@ -65,7 +64,7 @@ export default function Header() {
                     href="https://github.com/nidolight" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    onClick={handleGithubClick} // 이벤트 버블링 방지
+                    onClick={handleGithubClick}
                 >
                     <FaGithub />
                 </GithubIcon>
